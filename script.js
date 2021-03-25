@@ -1,15 +1,19 @@
 //global variables
-var pattern = [1, 2, 3, 3, 3, 4, 3, 2];
+var pattern = [];
 var progress = 0; 
 var gamePlaying = false;
 var tonePlaying = false;
 var volume = 0.5;  //must be between 0.0 and 1.0
 var guessCounter = 0;
+var guessLeft = 3;
 // global constants
-const clueHoldTime = 1000; //how long to hold each clue's light/sound
+var clueHoldTime = 1000; //how long to hold each clue's light/sound
 const cluePauseTime = 333; //how long to pause in between clues
 const nextClueWaitTime = 1000; //how long to wait before starting playback of the clue sequence
 
+//for tracking time
+var timer;
+var gameTime = (60 * 1/60);
 //Page Initialization
 // Init Sound Synthesizer
 //var AudioContext = (window as any).webkitAudioContext; // Default
@@ -24,6 +28,7 @@ o.start(0);
 
 function startGame(){
     //initialize game variables
+    randomPattern()
     progress = 0;
     gamePlaying = true;
     // swap the Start and Stop buttons
@@ -38,16 +43,27 @@ function stopGame(){
     // swap the Start and Stop buttons
     document.getElementById("startBtn").classList.remove("hidden");
     document.getElementById("stopBtn").classList.add("hidden");
+    timer = 0;
+    clueHoldTime = 1000;
 }
 
+function randomPattern(){
+  for(var i = 0;i<=8;i++){
+      pattern[i]= Math.floor((Math.random() * (7) + 1));
+ }
+  return pattern;
+}
 
+//pattern = randomPattern();
 
 // Sound Synthesis Functions
 const freqMap = {
   1: 261.626,
   2: 293.665,
   3: 329.628,
-  4: 349.228
+  4: 349.228,
+  5: 391.995,
+  6: 440.000
 }
 function playTone(btn,len){ 
   o.frequency.value = freqMap[btn]
@@ -90,17 +106,21 @@ function playClueSequence(){
   for(let i=0;i<=progress;i++){ // for each clue that is revealed so far
     console.log("play single clue: " + pattern[i] + " in " + delay + "ms")
     setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
-    delay += clueHoldTime 
+    delay += clueHoldTime;
     delay += cluePauseTime;
+    clueHoldTime -=20;
   }
+  //clueHoldTime = clueHoldTime - 300;
 }
 function winGame(){
   stopGame();
   alert("Congratulations. You won!!");
+  timer =0;
 }
 function loseGame(){
   stopGame();
   alert("Game Over. You lost.");
+  
 }
 /*function guess(btn){
   console.log("user guessed: " + btn);
@@ -145,6 +165,7 @@ function guess(btn){
       }else{
         //Pattern correct. Add next segment
         progress++;
+      
         playClueSequence();
       }
     }else{
@@ -154,6 +175,12 @@ function guess(btn){
   }else{
     //Guess was incorrect
     //GAME OVER: LOSE!
-    loseGame();
+    guessLeft--;
+    if(guessLeft > 0){
+        alert("You lost a life. You have " + guessLeft+ " lives left");
+    }else{
+      loseGame();
+    }
   }
+
 }    
