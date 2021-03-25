@@ -39,6 +39,8 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+![memorygame (1)](https://user-images.githubusercontent.com/69432693/112402778-81ea1a80-8ce3-11eb-87c9-e1be0b306752.gif)
+
 ![](your-link-here)
 
 
