@@ -4,7 +4,7 @@
 
 Submitted by: **Derya Kilic**
 
-Time spent: **7** hours spent in total
+Time spent: **8** hours spent in total
 
 Link to project: (insert your link here, should start with https://glitch.com/edit/#!/secret-bottlenose-nose?path=README.md%3A8%3A0)
 
@@ -41,21 +41,21 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 ![memorygame (1)](https://user-images.githubusercontent.com/69432693/112402778-81ea1a80-8ce3-11eb-87c9-e1be0b306752.gif)
 
-![](your-link-here)
 
 
 ## Reflection Questions
 1. If you used any outside resources to help complete your submission (websites, books, people, etc) list them here. 
-[YOUR ANSWER HERE]
+I used W3schools.com for generally every question I had.
 
 2. What was a challenge you encountered in creating this submission (be specific)? How did you overcome it? (recommended 200 - 400 words) 
-[YOUR ANSWER HERE]
+It was my first time coding in css, js, html, but I think the explanations were pretty understandible. The problem I encountered the most was when adding the bonus part, my code was breaking which made me realize there are other component that I have to think. I overcame it with puttin console.log() so I was able to see which loop my code was entering and which loops it was skipping. Or by looking at the console and trying to find the reason for the errors. also at first I was using Safari and it was giving me weird exception which made me realize that they dont work the same in Chrome and Safari. 
+
 
 3. What questions about web development do you have after completing your submission? (recommended 100 - 300 words) 
-[YOUR ANSWER HERE]
+It took me * hours to finish this project, looking at how basic and easy this project is, I was wondering generally how long does it take to make a well functioning website? What was their reson of choosing Web Development, because before I didn'T know how fun it was to do web development, so did they also have a project or an experience that was their stepping stone to the Web Development industry, if so what was the projects about?
 
 4. If you had a few more hours to work on this project, what would you spend them doing (for example: refactoring certain functions, adding additional features, etc). Be specific. (recommended 100 - 300 words) 
-[YOUR ANSWER HERE]
+I made my buttons sound the order of a piano I would trun the guessing game into and learn piano game where you learn the part while trying to repeat the button order. I kind of started doing it but I was;t sure if I was supposed to change the code after submitting. 
 
 
 
