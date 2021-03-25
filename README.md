@@ -34,7 +34,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app!
+- [x] Buttons look like they are beeing pressed with slight animation.
 
 ## Video Walkthrough
 
