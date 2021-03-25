@@ -45,11 +45,12 @@ function stopGame(){
     document.getElementById("stopBtn").classList.add("hidden");
     timer = 0;
     clueHoldTime = 1000;
+
 }
 
 function randomPattern(){
-  for(var i = 0;i<=8;i++){
-      pattern[i]= Math.floor((Math.random() * (7) + 1));
+  for(var i = 0;i< 8;i++){
+      pattern[i]= Math.floor((Math.random() * (6) + 1));
  }
   return pattern;
 }
@@ -108,17 +109,20 @@ function playClueSequence(){
     setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
     delay += clueHoldTime;
     delay += cluePauseTime;
-    clueHoldTime -=20;
+    clueHoldTime -= clueHoldTime/10;
   }
   //clueHoldTime = clueHoldTime - 300;
 }
 function winGame(){
   stopGame();
+  guessLeft = 3;
   alert("Congratulations. You won!!");
-  timer =0;
+  
+  //timer =0;
 }
 function loseGame(){
   stopGame();
+  guessLeft = 3;
   alert("Game Over. You lost.");
   
 }
@@ -158,14 +162,14 @@ function guess(btn){
 
   if(pattern[guessCounter] == btn){
     //Guess was correct!
+  
     if(guessCounter == progress){
-      if(progress == pattern.length - 1){
+      if(progress == 7){
         //GAME OVER: WIN!
         winGame();
       }else{
         //Pattern correct. Add next segment
         progress++;
-      
         playClueSequence();
       }
     }else{
